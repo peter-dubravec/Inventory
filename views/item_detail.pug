@@ -1,0 +1,18 @@
+extends layout 
+
+block content
+    div.item-detail
+        h3=item.name
+        if item.img
+            img(src=item.img.replace(/^public/, '')) 
+        p=item.description
+        p Number in stock #{item.number_in_stock}
+        p Price: #{item.price}$
+        
+
+    
+    p 
+        a.delete(href=`/items/${item._id}/delete`) Delete Item
+    
+    p
+        a.update(href=`/items/${item._id}/update`) Update Item

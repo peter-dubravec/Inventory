@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h3 Categories: 
+  ul 
+    each result in results 
+      li
+        a(href=result.url) #{result.name} 
+  
+

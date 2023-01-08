@@ -1,0 +1,43 @@
+extends layout 
+
+block content 
+    form(action="", method="post" enctype="multipart/form-data")
+
+        label(for="item") Name:
+        input#item(type="text", name="name" value=(item === undefined ? "" : item.name))
+
+        label(for="description") Description
+        input#description(type="text" name="description" value=(item === undefined ? "" : item.description)) 
+
+        label(for="price") Price:
+        input#price(type="number", name="price" value=(item===undefined ? "" : item.price))
+
+        label(for="num_in_stock") Number in stock:
+        input#num_in_stock(type="number", name="stock", value=(item===undefined ? "" : item.number_in_stock))
+
+        label(for="category") Category:
+        select#category(name="category")
+            each category in categories
+                if item
+                    option(value=category._id selected=(item.category === category._id.toString() ? 'selected' : false)) #{category.name}
+                else
+                    option(value=category._id) #{category.name}
+        
+        label(for="image") Upload Image:
+        input#image(type="file" name="image")
+
+        label(for="password") Password:
+        input#password(type="password", name="password")
+
+        input(type="submit", value="Submit")
+
+    
+    if errors
+        ul
+            each error in errors
+                li.error - #{error.msg}
+                
+    if invalidPassword
+        ul 
+            li #{invalidPassword}
+            

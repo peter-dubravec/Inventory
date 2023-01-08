@@ -1,0 +1,13 @@
+extends layout
+
+block content 
+    h2 Are you sure you want to delete item "#{item.name}"?
+
+    form(action="", method="post")
+        label(for="password") Type password: 
+        input#password(type="password", name="password") 
+        input(type="submit" value="Delete")
+    
+    if error 
+        p Wrong password
+            

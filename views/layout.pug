@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    div.wrapper
+      div.menu
+        div.menu-content
+          ul
+            li 
+              a(href="/") Home
+            li
+              a(href="/create-category") Create Category
+            li
+              a(href="/create-item") Create Item
+      
+      div.header
+        div.header-content
+          h1 Lending App
+
+      div.content
+        block content

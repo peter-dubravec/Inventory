@@ -1,0 +1,25 @@
+extends layout
+
+block content
+   
+    h3=category.name
+    h4=category.description
+    div.item-container
+        each result in results 
+            a(href=result.url)
+                div.item
+                    p #{result.name}
+                    if result.img
+                        img.img-cat-show(src=result.img.replace(/^public/, ''))
+                    p #{result.description}
+                    p Price: #{result.price}$
+                    p In stock: #{result.number_in_stock}
+        
+    
+    if results.length == 0
+        h5 No items in category
+        p.items-show
+            a(href=`/category/${id}/delete`) Delete Category  
+              
+    p.items-show
+        a(href=`/category/${id}/update`) Update Category
